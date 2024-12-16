@@ -1,0 +1,37 @@
+<div class="fruit-container">
+    @for (fruit of fruits; track $index) {
+  <div class="fruit-card"> 
+    
+    <div class="fruit-header">
+        <img src={{fruit.imageUrl}} alt={{fruit.name}} class="fruit-image">
+    </div>
+    <div class="fruit-details">
+        <h2 class="fruit-name">{{ fruit.name }}</h2>
+        <p class="fruit-origin"><strong>Origin:</strong> {{fruit.origin}}</p>
+        <p class="fruit-description">
+          {{fruit.description}}
+        </p>
+        <div class="fruit-actions">
+          <!-- Edit Button with routerLink -->
+          <button
+            type="button"
+            class="edit-button"
+            [routerLink]="['/edit-fruit', fruit._id]"
+          >
+            Edit
+          </button>
+        
+          <!-- Delete Button (if it doesn't navigate, leave it as is) -->
+          <button
+            type="button"
+            class="delete-button"
+            (click)="deleteFruit(fruit._id)"
+          >
+            Delete
+          </button>
+        </div>
+        
+    </div>
+ </div> 
+}
+</div>

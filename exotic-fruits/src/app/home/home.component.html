@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="welcome">
+    <div class="home-image">
+      <img src="home.jpg" />
+    </div>
+    <div class="slogan">
+      <div class="slogan-title">
+    
+        <p>DISCOVER NEW TASTE</p>
+      </div>
+      <p class="slogan-desc">
+        Explore our curated collection of rare and exotic fruits. Start your
+        journey to discover nature’s best-kept secrets today!
+      </p>
+      <div class="slogan-img">
+        <img src="6d49e0be84473fbcce8bad43d7d870c7.jpg">
+      </div>
+      
+      <div class="recipes">
+        <li>
+          <a routerLink="/recipes">Recipes</a>
+        </li>
+
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="featured">
+    <div class="img-container">
+      <img src="background.jpg" />
+    </div>
+    <div class="featured-content">
+      <p class="featured-title">Featured Products</p>
+      <div class="featured-products">
+        <div class="first-type">
+          <p>Tropical Fruit</p>
+          <div>
+            <img src="tropicalfruit.jpg" />
+          </div>
+        </div>
+        <div class="second-type">
+          <p>Asian Fruit</p>
+          <p>
+            <img src="lychee.jpg" />
+          </p>
+        </div>
+        <div class="first-type">
+          <p>South American Fruit</p>
+          <p>
+            <img src="southamerican.jpg" />
+          </p>
+        </div>
+        <div class="second-type">
+          <p>African Fruit</p>
+          <p>
+            <img src="african.jpg" />
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @if(!isLoggedIn) {
+  <div class="logged">
+    <div class="description">
+      <div class="view-more-img">
+        <img src="viewall.png" />
+      </div>
+      <div>To view all of our products</div>
+    </div>
+     <div class="arrows">
+       <img src="arrow.png" />
+       <img src="arrow.png" />
+
+     </div>
+   
+    <ul>
+      <li>
+        <a routerLink="/login">
+          <i class="fas fa-sign-in-alt"></i>
+          Login
+        </a>
+      </li>
+      <li>
+        <a routerLink="/register">
+          <i class="fas fa-user-plus"></i>
+          Register
+        </a>
+      </li>
+    </ul>
+  </div>
+  }
+</div>

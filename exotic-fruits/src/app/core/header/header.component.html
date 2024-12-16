@@ -1,0 +1,42 @@
+
+
+
+<header>
+  <nav class="panel">
+ 
+    <ul>
+      <li>
+        <a routerLink="/home">Home</a>
+      </li>
+      <li>
+        <a routerLink="/fruits">Products</a>
+      </li>
+      @if(isLoggedIn){
+      <li>
+        <a routerLink="/add-fruit">New Product</a>
+      </li>}
+    </ul>
+  </nav>
+  <div class="logo-wrapper">
+    <img src="logonew.png" />
+  </div>
+  <div class="panel right-panel" >
+    <ul>
+       @if(isLoggedIn){
+      <li class="user-profile-btn">
+        <a routerLink="/profile">{{ firstName }}'s profile</a>
+      </li>
+      <li>
+        <a (click)="logout()">Logout</a>
+      </li>
+      } @else {
+       <li> 
+         <a routerLink="/login">Login</a>
+      </li>
+      <li>
+        <a routerLink="/register">Register</a>
+      </li>
+      } 
+    </ul>
+  </div>
+</header>

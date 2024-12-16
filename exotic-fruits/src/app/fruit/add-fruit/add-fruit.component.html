@@ -1,0 +1,61 @@
+<div class="bowls">
+  <img src="bowls.jpg" />
+</div>
+<div class="fruit-form-container">
+    <h2>Add Fruit</h2>
+    <form #form="ngForm" (ngSubmit)="addFruit(form)" class="fruit-form">
+      <div class="form-group">
+        <label for="name">Fruit Name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          [(ngModel)]="fruit.name"
+          #inputFruitName="ngModel"
+          placeholder="Enter fruit name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="origin">Origin</label>
+        <input
+          id="origin"
+          type="text"
+          name="origin"
+          [(ngModel)]="fruit.origin"
+          #inputFruitOrigin="ngModel"
+          placeholder="Enter origin"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          type="text"
+          name="description"
+          [(ngModel)]="fruit.description"
+          #inputFruitDescription="ngModel"
+          placeholder="Enter description"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="image">Image URL</label>
+        <input
+          id="image"
+          type="text"
+          name="image"
+          [(ngModel)]="fruit.imageUrl"
+          #inputFruitImage="ngModel"
+          placeholder="Enter image URL"
+        />
+      </div>
+      <button type="submit" class="add-button" [disabled]="form.invalid">
+        Add Fruit
+      </button>
+    </form>
+      </div>
+   
+ 
+ 
+

@@ -1,0 +1,98 @@
+<div class="fruits-section">
+  <div class="fruits-image">
+    <img src="allprofilefruits.jpg" />
+  </div>
+</div>
+
+<div class="profile-container">
+  <section class="user-profile">
+    <header class="profile-header">
+      <img src="profile.jpg"  class="profile-pic" />
+      <h2>User Information</h2>
+    </header>
+
+    @if (!isEditMode) {
+      <div class="profile-details">
+        <div class="detail-row">
+          <span class="label">Username:</span>
+          <span class="value">{{ profileDetails.username }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Email:</span>
+          <span class="value">{{ profileDetails.email }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Phone:</span>
+          <span class="value">{{ profileDetails.tel }}</span>
+        </div>
+        <button class="btn edit-btn" (click)="toggleEditMode()">Edit Profile</button>
+      </div>
+    } @else {
+      <form [formGroup]="form" (ngSubmit)="handleSaveProfile()" class="edit-profile-form">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            formControlName="username"
+            placeholder="Enter username"
+          />
+          @if (form.get('username')?.touched && form.get('username')?.errors?.['required']) {
+            <p class="error">Username is required!</p>
+          }
+          @if (form.get('username')?.errors?.['minlength']) {
+            <p class="error">Must be at least 5 characters.</p>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="Enter email"
+          />
+          @if (form.get('email')?.touched && form.get('email')?.errors?.['required']) {
+            <p class="error">Email is required!</p>
+          }
+          @if (form.get('email')?.errors?.['emailValidator']) {
+            <p class="error">Invalid email format.</p>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="tel">Phone:</label>
+          <div class="phone-input">
+            <select id="select-tel" formControlName="countryCode">
+              <option value="00359">+359</option>
+            </select>
+            <input
+              type="text"
+              id="tel"
+              formControlName="tel"
+              placeholder="Enter phone number"
+            />
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="button" class="btn cancel-btn" (click)="onCancel($event)">
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="btn save-btn"
+            [disabled]="form.invalid"
+          >
+            Save Changes
+          </button>
+        </div>
+      </form>
+    }
+  </section>
+</div>
+
+  
+  
+  

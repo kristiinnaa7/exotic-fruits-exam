@@ -1,0 +1,23 @@
+<section>
+    @if (isLoading) {
+      <p>Loading recipes...</p>
+    } @else {
+      @if (recipes.length === 0) {
+        <p>No recipes found.</p>
+      } @else {
+        @for (recipe of recipes; track $index) {
+          <div class="recipe-item">
+            <div class="content">
+              <h2>{{ recipe.name }}</h2>
+              <p>Ingredients: {{ recipe.ingredients }}</p>
+            </div>
+            <div class="image">
+              <img src={{recipe.imageUrl}} alt={{recipe.name}} />
+            </div>
+          </div>
+        }
+      }
+    }
+  </section>
+  
+  

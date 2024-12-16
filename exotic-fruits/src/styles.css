@@ -1,0 +1,58 @@
+/*
+*Removes all default whitespace
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /*
+  *Reset CSS model sizing calculations
+  */
+  
+  html {
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+
+
+  body {
+    max-width: 1400px;
+    margin: auto;
+    position: relative;
+    min-height: 100vh;
+    font-optical-sizing: auto;
+  }
+
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
+  /* Media Query */
+  @media (min-width: 800px) {
+    html {
+      font-size: 14px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    html {
+      font-size: 18px;
+    }
+  }
+  

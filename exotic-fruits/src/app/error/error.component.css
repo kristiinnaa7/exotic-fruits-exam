@@ -1,0 +1,35 @@
+.mainbox {
+    margin: auto;
+    height: 600px;
+    width: 550px;
+    position: relative;
+  }
+  
+  .err {
+    color: #d4191c;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 200px;
+    position: absolute;
+    left: 20%;
+    top: 5%;
+  }
+  
+  .msg {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    position: absolute;
+    left: 16%;
+    top: 50%;
+    width: 75%;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #770911;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

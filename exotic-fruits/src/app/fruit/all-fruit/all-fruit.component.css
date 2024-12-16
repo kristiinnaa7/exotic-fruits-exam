@@ -1,0 +1,114 @@
+.fruit-container {
+    width: 100%;
+    background: rgb(233, 221, 211);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 10px;
+    
+  }
+  
+.fruit-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; 
+}
+
+.edit-btn {
+  margin-top: 40px;
+  background-color: #cdba78; 
+  color: rgb(20, 11, 11);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.edit-btn:hover {
+  background-color: #a39c50;
+  transform: translateY(-2px); 
+}
+
+
+.delete-btn {
+  background-color: #e99c79; 
+  color: rgb(13, 5, 5);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #e74829;
+  transform: translateY(-2px); 
+}
+
+
+@media (max-width: 768px) {
+  .fruit-details {
+      flex-direction: row; 
+      justify-content: center;
+      gap: 15px;
+  }
+}
+
+
+  .fruit-card {
+    max-width: 400px;
+    padding: 30px 35px;
+    margin: 40px auto;
+    background-color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px #8b582b;
+    border: 10px solid #cdeda1;
+    box-shadow: 10px 20px 60px rgba(233, 123, 95, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  }
+  
+  .fruit-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 15px 25px 70px rgba(233, 123, 95, 0.4); 
+  }
+  
+
+  .fruit-header img {
+    width: 100%;
+    height: auto;
+    border-radius: 300px;
+  }
+  
+  .fruit-name {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #b07762;
+    border-radius: 70px;
+    border-color: #231f04;
+    margin: 10px 0;
+  }
+  
+  .fruit-origin {
+    font-size: 16px;
+    color: #707e6a;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .fruit-description {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #092d04;
+    padding-top: 15px;
+  }
+  
+  
+  
+  

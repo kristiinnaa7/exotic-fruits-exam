@@ -1,0 +1,71 @@
+<div class="bowls">
+    <img src="bowls.jpg" />
+  </div>
+  
+  <div class="fruit-form-container">
+    <h2>Edit Fruit</h2>
+  
+    <!-- Show loading message while data is being fetched -->
+    <div *ngIf="isLoading">Loading fruit details...</div>
+  
+    <!-- Show form once fruit is loaded -->
+    <div *ngIf="!isLoading && fruit">
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="fruit-form">
+        <div class="form-group">
+          <label for="name">Fruit Name</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            [(ngModel)]="fruit.name"
+            #inputFruitName="ngModel"
+            placeholder="Enter fruit name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="origin">Origin</label>
+          <input
+            id="origin"
+            type="text"
+            name="origin"
+            [(ngModel)]="fruit.origin"
+            #inputFruitOrigin="ngModel"
+            placeholder="Enter origin"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            type="text"
+            name="description"
+            [(ngModel)]="fruit.description"
+            #inputFruitDescription="ngModel"
+            placeholder="Enter description"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="image">Image URL</label>
+          <input
+            id="image"
+            type="text"
+            name="image"
+            [(ngModel)]="fruit.imageUrl"
+            #inputFruitImage="ngModel"
+            placeholder="Enter image URL"
+          />
+        </div>
+        <button type="submit" class="edit-button" [disabled]="form.invalid">
+          Edit Fruit
+        </button>
+      </form>
+    </div>
+  
+    <!-- Show message if fruit not found -->
+    <div *ngIf="!isLoading && !fruit">
+      <p>Fruit not found</p>
+    </div>
+  </div>
+  

@@ -1,77 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../types/recipes'; // Make sure this is defined correctly
+import { Recipe } from '../types/recipes'; 
 import { ApiService } from '../api.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.css'] // Corrected typo: styleUrls instead of styleUrl
+  styleUrls: ['./recipes.component.css']  
 })
 export class RecipesComponent implements OnInit {
-
-  recipes: any
+  
+  recipes: Recipe[] = []; 
   isLoading = true;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
-    // Raw data as an example (this should be an array)
-    const rawData = [
-      {
-        name: 'Exotic Passion Fruit and Lime Cake',
-        ingredients: [
-          '½ Oats',
-          '¾ cup Coconut Flour',
-          '2 tbsp Coconut Sugar',
-          '3 tbsp Coconut Oil',
-          '0.12 tsp Himalayan Salt',
-          '2 tbsp Cacao Powder',
-          '¼ cup Nut Milk',
-          '9 tbsp Coconut Nectar',
-          '1 Mango',
-          '½ cup Coconut Oil',
-          '2 Passion Fruit',
-          '1 Lime',
-        ],
-        imageUrl: 'cake.jpg'
+    this.apiService.getRecipes().subscribe({
+      next: (recipes: Recipe[]) => {
+        this.recipes = recipes;
+        this.isLoading = false;
       },
-      {
-        name: 'Hawaiian Mimosas',
-        ingredients: [
-          'Coconut Rum',
-          'Pineapple Juice (cold)',
-          'Champagne or Prosecco (cold)',
-          'Pineapple slices and/or cherries for garnish',
-        ],
-        imageUrl: 'Hawaiian.jpg'
-      },
-      {
-        name: 'Tropical Fruit Salad Ingredients',
-        ingredients: [
-          '1 Pineapple',
-          '12 Mandarins',
-          '5 Kiwis',
-          '3 Mangos',
-          '2 cups strawberries',
-          '1 Lemon',
-          '¼ cup honey',
-        ],
-        imageUrl: 'salad.jpg'
+      error: (err) => {
+        console.error('Error fetching recipes:', err);
+        this.isLoading = false;
       }
-    ];
-
-    // Now, rawData is an array, so we can directly assign it to this.recipes
-    this.recipes = rawData;
-
-    // Optionally, simulate loading completion
-    this.isLoading = false;
-
-    // If you plan to use the API service in the future, you can uncomment and use this code
-    // this.apiService.getRecipes().subscribe((recipes) => {
-    //   this.recipes = recipes;
-    //   this.isLoading = false;
-    // });
+    });
   }
+   editRecipe(recipe: Recipe) {
+      this.router.navigate(['/edit-recipe', recipe._id]); 
+    }
+  
+    
+    deleteRecipe(recipeId: string) {
+      if (confirm('Are you sure you want to delete this recipe?')) {
+        this.apiService.deleteRecipe(recipeId).subscribe(
+          () => {
+            this.recipes = this.recipes.filter(recipe => recipe._id !== recipeId);
+          },
+          (error) => {
+            console.error('Error deleting recipe', error);
+          }
+        );
+      }
+    }
 }
+

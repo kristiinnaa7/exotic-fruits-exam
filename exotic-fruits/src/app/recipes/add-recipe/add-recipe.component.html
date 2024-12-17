@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="recipe">
+      <img src="recipe.jpg" alt="Recipe Image" />
+    </div>
+  
+    <div class="recipe-form-container">
+      <h2>Add Recipe</h2>
+      <form #form="ngForm" (ngSubmit)="addRecipe(form)" class="recipe-form">
+        <div class="form-group">
+          <label for="name">Recipe Name</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            [(ngModel)]="recipe.name"
+            #inputRecipeName="ngModel"
+            placeholder="Enter recipe name"
+            required
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="ingredients">Ingredients</label>
+          <textarea
+            id="ingredients"
+            name="ingredients"
+            [(ngModel)]="recipe.ingredients"
+            #inputRecipeIngredients="ngModel"
+            placeholder="Enter ingredients"
+            required
+          ></textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="image">Image URL</label>
+          <input
+            id="image"
+            type="text"
+            name="image"
+            [(ngModel)]="recipe.imageUrl"
+            #inputRecipeImage="ngModel"
+            placeholder="Enter image URL"
+          />
+        </div>
+  
+        <button type="submit" class="add-button" [disabled]="form.invalid">
+          Add Recipe
+        </button>
+      </form>
+    </div>
+  </div>
+  

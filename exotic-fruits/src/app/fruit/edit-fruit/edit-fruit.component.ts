@@ -26,7 +26,6 @@ export class EditFruitComponent implements OnInit {
     const fruitId = this.route.snapshot.paramMap.get('id');
     
     if (fruitId) {
-      // Fetch the fruit details from the API by ID
       this.apiService.getSingleFruit(fruitId).subscribe(
         (fruit) => {
           this.fruit = fruit;
@@ -43,7 +42,6 @@ export class EditFruitComponent implements OnInit {
     }
   }
 
-  // Handle form submission to update the fruit
   onSubmit(form: NgForm): void {
     if (form.valid && this.fruit) {
       this.apiService.updateFruit(this.fruit._id, this.fruit).subscribe(

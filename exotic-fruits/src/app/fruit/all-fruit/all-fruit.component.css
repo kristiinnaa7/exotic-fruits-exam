@@ -17,9 +17,17 @@
   gap: 15px; 
 }
 
-.edit-btn {
+.fruit-actions {
+  display: flex;
+  justify-content: center; 
+  gap: 15px; 
+  margin-top: 15px; 
+  
+}
+
+.fruit-actions button{
   margin-top: 40px;
-  background-color: #cdba78; 
+  background-color: #c7ba8d; 
   color: rgb(20, 11, 11);
   border: none;
   padding: 10px 20px;
@@ -30,29 +38,6 @@
   transition: background-color 0.3s, transform 0.2s ease;
 }
 
-.edit-btn:hover {
-  background-color: #a39c50;
-  transform: translateY(-2px); 
-}
-
-
-.delete-btn {
-  background-color: #e99c79; 
-  color: rgb(13, 5, 5);
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s ease;
-}
-
-.delete-btn:hover {
-  background-color: #e74829;
-  transform: translateY(-2px); 
-}
-
 
 @media (max-width: 768px) {
   .fruit-details {
@@ -61,7 +46,6 @@
       gap: 15px;
   }
 }
-
 
   .fruit-card {
     max-width: 400px;

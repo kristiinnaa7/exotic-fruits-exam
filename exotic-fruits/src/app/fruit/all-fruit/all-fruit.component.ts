@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Fruit } from '../../types/fruits';
 import { ApiService } from '../../api.service';
-import { Router, RouterLink } from '@angular/router';  // Import Router
+import { Router, RouterLink } from '@angular/router';  
 
 @Component({
   selector: 'app-all-fruit',
@@ -14,7 +14,6 @@ export class AllFruitComponent implements OnInit {
   fruits: Fruit[] = [];
   isLoading = true;
 
-  // Inject Router into the constructor
   constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
@@ -24,17 +23,16 @@ export class AllFruitComponent implements OnInit {
     });
   }
 
-  // Edit fruit functionality
+  
   editFruit(fruit: Fruit) {
-    this.router.navigate(['/edit-fruit', fruit._id]);  // Navigate to the edit page with the fruit ID
+    this.router.navigate(['/edit-fruit', fruit._id]); 
   }
 
-  // Delete fruit functionality
+  
   deleteFruit(fruitId: string) {
     if (confirm('Are you sure you want to delete this fruit?')) {
       this.apiService.deleteFruit(fruitId).subscribe(
         () => {
-          // After successful delete, remove the fruit from the list
           this.fruits = this.fruits.filter(fruit => fruit._id !== fruitId);
         },
         (error) => {

@@ -14,6 +14,23 @@
             <div class="image">
               <img src={{recipe.imageUrl}} alt={{recipe.name}} />
             </div>
+            <div class="fruit-actions">
+              <button
+                type="button"
+                class="edit-button"
+                [routerLink]="['/edit-recipe', recipe._id]"
+              >
+                Edit
+              </button>
+            
+              <button
+                type="button"
+                class="delete-button"
+                (click)="deleteRecipe(recipe._id)"
+              >
+                Delete
+              </button>
+            </div>
           </div>
         }
       }

@@ -4,11 +4,9 @@
   
   <div class="fruit-form-container">
     <h2>Edit Fruit</h2>
-  
-    <!-- Show loading message while data is being fetched -->
+
     <div *ngIf="isLoading">Loading fruit details...</div>
   
-    <!-- Show form once fruit is loaded -->
     <div *ngIf="!isLoading && fruit">
       <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="fruit-form">
         <div class="form-group">

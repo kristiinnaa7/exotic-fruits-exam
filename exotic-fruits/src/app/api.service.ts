@@ -16,30 +16,23 @@ export class ApiService {
     return this.http.get<Recipe[]>(`${apiUrl}/recipes`);
   }
 
-  // Fetch a single recipe by ID (optional)
-  getRecipe(id: string) {
+  createRecipe(recipeName: Recipe,) {
+    const { apiUrl } = environment;
+    return this.http.post<Recipe>(`${apiUrl}/recipes`, recipeName);
+  }
+  getSingleRecipe(id: string){
     const { apiUrl } = environment;
     return this.http.get<Recipe>(`${apiUrl}/recipes/${id}`);
   }
-  createRecipe(recipeName: string, postText: string) {
+
+  deleteRecipe(recipeId: string) {
     const { apiUrl } = environment;
-    const payload = { recipeName, postText };
-    return this.http.post<Recipe>(`${apiUrl}/recipes`, payload);
+    return this.http.delete(`${apiUrl}/fruits/${recipeId}`);
   }
-
-
-  // getRecipes(limit?: number) {
-  //   const { apiUrl } = environment;
-  //   let url = `${apiUrl}/recipes`;
-  //   if (limit) {
-  //     url += `?limit=${limit}`;
-  //   }
-  //   console.log(url);
-    
-
-  //   return this.http.get<Recipe[]>(url);
-  // }
-
+  updateRecipe(recipeId: string, updatedRecipe: Recipe) {
+    const { apiUrl } = environment;
+    return this.http.put<Fruit>(`${apiUrl}/fruits/${recipeId}`, updatedRecipe);
+  }
 
   getFruits() {
     const { apiUrl } = environment;

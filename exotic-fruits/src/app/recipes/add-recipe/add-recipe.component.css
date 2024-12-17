@@ -1,0 +1,141 @@
+
+.container {
+    display: flex;
+    justify-content: space-between;  
+    align-items: flex-start;         
+    gap: 30px;                     
+    margin: 20px auto;
+    max-width: 1200px;
+  }
+  
+  .recipe {
+    flex: 1;                        
+    display: flex;
+    justify-content: center;         
+    align-items: center;
+  }
+  
+  .recipe img {
+    width: 100%;                     
+    max-width: 400px;               
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .recipe img:hover {
+    transform: scale(1.05);        
+  }
+  
+  
+  .recipe-form-container {
+    flex: 1.5;                       
+    padding: 30px;
+    background-color: #b9e6bb;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .recipe-form-container:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .recipe-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  textarea {
+    height: 120px;
+    resize: vertical;
+  }
+  
+  input[type="text"]:focus,
+  textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  button.add-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button.add-button:disabled {
+    background-color: #b0adad;
+  }
+  
+  button.add-button:hover {
+    background-color: #45a049;
+  }
+  
+ 
+  @media (max-width: 800px) {
+    .container {
+      flex-direction: column;
+      align-items: center;  
+    }
+  
+    .recipe img {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .recipe-form-container {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .recipe-form-container {
+      padding: 15px;
+    }
+  
+    .recipe-form {
+      width: 100%;
+    }
+  
+    button.add-button {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+  

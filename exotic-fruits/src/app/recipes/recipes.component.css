@@ -5,51 +5,52 @@
     margin-bottom: 15px;
     background: #f7f2c9;
     display: flex;
-    flex-direction: row; 
-    align-items: center; 
-    justify-content: space-between; 
-    height: auto; 
-    gap: 20px; 
+    flex-direction: row;
+    align-items: flex-start; /* Align items at the top */
+    justify-content: space-between;
+    gap: 20px;
+    position: relative; /* Add relative positioning for positioning buttons */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.recipe-item:hover {
+  }
+  
+  .recipe-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.recipe-item h2 {
+  }
+  
+  .recipe-item h2 {
     padding-bottom: 50px;
     font-size: 30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     -webkit-text-stroke: 1px #ebc197;
     font-weight: bold;
     color: #b06d11;
-}
-
-.recipe-item p {
+  }
+  
+  .recipe-item p {
     font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     line-height: 1.8;
     color: #555;
     margin-bottom: 15px;
-}
-
-.recipe-item img {
-    max-width: 200px; 
+  }
+  
+  .recipe-item img {
+    max-width: 200px;
     height: auto;
     border-radius: 5px;
-}
-
-.btns {
+  }
+  
+  .fruit-actions {
+    position: absolute; /* Fix the buttons at the bottom */
+    bottom: 10px; /* 10px from the bottom of the recipe-item */
+    left: 15px; /* 15px from the left */
     display: flex;
-    gap: 15px; 
-    justify-content: flex-start; 
-    margin-top: 40px;
-}
-
-.edit-btn,
-.delete-btn {
+    gap: 15px;
+  }
+  
+  .edit-button,
+  .delete-button {
     background-color: #9cf19d;
     color: white;
     border: none;
@@ -60,35 +61,38 @@
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s ease;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.edit-btn:hover {
+  }
+  
+  .edit-button:hover {
     background-color: #8ecb8f;
     transform: translateY(-2px);
-}
-
-.delete-btn {
+  }
+  
+  .delete-button {
     background-color: #e06d60;
-}
-
-.delete-btn:hover {
+  }
+  
+  .delete-button:hover {
     background-color: #c16156;
     transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     .recipe-item {
-        flex-direction: column; 
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
     }
-
-    .btns {
-        justify-content: center; 
+  
+    .fruit-actions {
+      position: relative; /* Change to normal flow for mobile */
+      bottom: initial; /* Reset bottom positioning for mobile */
+      left: initial; /* Reset left positioning for mobile */
+      margin-top: 15px; /* Add margin for spacing between buttons and content */
+      justify-content: center;
     }
-
+  
     .recipe-item img {
-        max-width: 100%; 
+      max-width: 100%;
     }
-}
-
+  }
   

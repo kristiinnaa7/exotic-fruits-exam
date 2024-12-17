@@ -9,6 +9,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { AllFruitComponent } from './fruit/all-fruit/all-fruit.component';
 import { RecipesComponent } from './recipes/recipes.component'
 import { EditFruitComponent } from './fruit/edit-fruit/edit-fruit.component';
+import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
+import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
 
 
 export const routes: Routes = [
@@ -22,6 +24,8 @@ export const routes: Routes = [
    { path: 'add-fruit', component: AddFruitComponent, canActivate: [AuthGuard] },
    { path: 'edit-fruit/:id', component: EditFruitComponent },
    {path: 'recipes', component: RecipesComponent},
+   {path: 'add-recipe', component: AddRecipeComponent},
+   {path: 'edit-recipe/:id', component: EditRecipeComponent},
   
 
   { path: '404', component: ErrorComponent },

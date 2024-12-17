@@ -1,5 +1,4 @@
 
-// import { User } from './user';
 
 export interface Fruit {
     _id: string;

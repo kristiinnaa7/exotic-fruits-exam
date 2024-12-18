@@ -33,8 +33,13 @@ export class RecipesComponent implements OnInit {
       this.router.navigate(['/edit-recipe', recipe._id]); 
     }
   
+  
     
-    deleteRecipe(recipeId: string) {
+    deleteRecipe(recipeId: string | undefined) {
+      if (!recipeId) {
+        console.error('Invalid recipe ID');
+        return;
+      }
       if (confirm('Are you sure you want to delete this recipe?')) {
         this.apiService.deleteRecipe(recipeId).subscribe(
           () => {

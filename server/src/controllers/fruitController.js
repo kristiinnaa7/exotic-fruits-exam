@@ -54,5 +54,8 @@ fruitController.put('/:fruitId', async (req, res) => {
         res.status(400).json({ message: getErrorMessage(err) })
     }
 });
+// if (fruits.userId.toString() !== req.userId) {
+//     return res.status(403).json({ message: 'You can only edit your own products' });
+//   }
 
 export default fruitController;

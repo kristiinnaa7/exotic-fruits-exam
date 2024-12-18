@@ -25,6 +25,7 @@ export class AddRecipeComponent {
       this.apiService.createRecipe(this.recipe).subscribe(
         response => {
           console.log('Recipe added successfully', response);
+          this.router.navigate(['/recipes']);
           form.reset(); 
         },
         error => {

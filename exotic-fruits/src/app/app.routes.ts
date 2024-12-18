@@ -22,10 +22,10 @@ export const routes: Routes = [
 
    {path: 'fruits', component: AllFruitComponent},
    { path: 'add-fruit', component: AddFruitComponent, canActivate: [AuthGuard] },
-   { path: 'edit-fruit/:id', component: EditFruitComponent },
+   { path: 'edit-fruit/:id', component: EditFruitComponent, canActivate: [AuthGuard] },
    {path: 'recipes', component: RecipesComponent},
-   {path: 'add-recipe', component: AddRecipeComponent},
-   {path: 'edit-recipe/:id', component: EditRecipeComponent},
+   {path: 'add-recipe', component: AddRecipeComponent, canActivate: [AuthGuard]},
+   {path: 'edit-recipe/:id', component: EditRecipeComponent, canActivate: [AuthGuard]},
   
 
   { path: '404', component: ErrorComponent },

@@ -8,6 +8,7 @@ import {
 import { emailValidator } from '../../utils/email.validator';
 import { DOMAINS } from '../../constants';
 import { ProfileDetails } from '../../types/user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-profile',
@@ -18,9 +19,8 @@ import { ProfileDetails } from '../../types/user';
 })
 export class ProfileComponent {
   isEditMode: boolean = false;
-
   profileDetails: ProfileDetails = {
-    username: 'JackSmith',
+    username: 'Jack',
     email: 'jacksmith127@gmail.com',
     tel: '885-888-888',
   };
@@ -36,6 +36,16 @@ export class ProfileComponent {
     ]),
     tel: new FormControl(this.profileDetails.tel),
   });
+  constructor(private userService: UserService) {}
+  get firstName(): string {
+    return this.userService.user?.username || '';
+  }
+  get email(): string {
+    return this.userService.user?.email || '';
+  }
+  get phone(): string {
+    return this.userService.user?.tel || '';
+  }
 
   toggleEditMode() {
     this.isEditMode = !this.isEditMode;
@@ -54,4 +64,5 @@ export class ProfileComponent {
     event.preventDefault();
     this.toggleEditMode();
   }
+
 }

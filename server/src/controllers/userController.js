@@ -4,11 +4,11 @@ import User from '../models/userModel.js';
 const userController = Router();
 userController.get('/', async (req, res) => {
     try {
-        const users = await User.find(); // Query to get all users
-        console.log(users); // Logs the users fetched from the database
-        res.status(200).json(users); // Sends the users as a response
+        const users = await User.find(); 
+        console.log(users); 
+        res.status(200).json(users); 
     } catch (error) {
-        console.log('Error fetching users:', error); // Logs any error during the query
+        console.log('Error fetching users:', error); 
         res.status(500).json({ message: error.message });
     }
 });

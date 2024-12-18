@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Fruit } from '../../types/fruits';
 import { ApiService } from '../../api.service';
 import { Router, RouterLink } from '@angular/router';  
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-all-fruit',
@@ -14,7 +15,7 @@ export class AllFruitComponent implements OnInit {
   fruits: Fruit[] = [];
   isLoading = true;
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(private apiService: ApiService, private router: Router, private userService: UserService) {}
 
   ngOnInit() {
     this.apiService.getFruits().subscribe((fruits) => {
@@ -28,8 +29,16 @@ export class AllFruitComponent implements OnInit {
     this.router.navigate(['/edit-fruit', fruit._id]); 
   }
 
+  get firstName(): string {
+    return this.userService.user?.username || '';
+  }
+
+  deleteFruit(fruitId: string | undefined) {
+    if (!fruitId) {
+      console.error('Invalid fruit ID');
+      return;
+    }
   
-  deleteFruit(fruitId: string) {
     if (confirm('Are you sure you want to delete this fruit?')) {
       this.apiService.deleteFruit(fruitId).subscribe(
         () => {
@@ -41,5 +50,6 @@ export class AllFruitComponent implements OnInit {
       );
     }
   }
+  
 }
 

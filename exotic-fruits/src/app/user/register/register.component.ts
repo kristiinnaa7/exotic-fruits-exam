@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -19,6 +19,12 @@ import { UserService } from '../user.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  ProfileDetails = {
+    username: '',
+    email: '',
+    tel: '',
+    password: '',
+  }
   form: FormGroup;
 
   constructor(

@@ -11,6 +11,8 @@
         <p class="fruit-description">
           {{fruit.description}}
         </p>
+  
+       @if(!fruit?.owner) {
         <div class="fruit-actions">
           <button
             type="button"
@@ -28,7 +30,7 @@
             Delete
           </button>
         </div>
-        
+       }
     </div>
  </div> 
 }

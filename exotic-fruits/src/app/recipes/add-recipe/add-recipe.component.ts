@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class AddRecipeComponent {
   recipe = {
-    _id: '',
     name: '',
     ingredients: [],
     imageUrl: ''

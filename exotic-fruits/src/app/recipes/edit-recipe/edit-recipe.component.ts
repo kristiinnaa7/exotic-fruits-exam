@@ -43,7 +43,7 @@ export class EditRecipeComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void {
-    if (form.valid && this.recipe) {
+    if (form.valid && this.recipe && this.recipe._id) {
       this.apiService.updateRecipe(this.recipe._id, this.recipe).subscribe(
         (updatedRecipe) => {
           console.log('Recipe updated successfully', updatedRecipe);

@@ -41,9 +41,8 @@ export class EditFruitComponent implements OnInit {
       this.isLoading = false;
     }
   }
-
   onSubmit(form: NgForm): void {
-    if (form.valid && this.fruit) {
+    if (form.valid && this.fruit && this.fruit._id) {
       this.apiService.updateFruit(this.fruit._id, this.fruit).subscribe(
         (updatedFruit) => {
           console.log('Fruit updated successfully', updatedFruit);
@@ -54,7 +53,7 @@ export class EditFruitComponent implements OnInit {
         }
       );
     } else {
-      console.error('Form is invalid or fruit is null');
+      console.error('Form is invalid, fruit is null, or fruit ID is missing');
     }
   }
 }

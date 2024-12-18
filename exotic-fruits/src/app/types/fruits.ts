@@ -1,7 +1,7 @@
 
 
 export interface Fruit {
-    _id: string;
+    _id?: string;
     name: string,
     origin: string,
     description: string,

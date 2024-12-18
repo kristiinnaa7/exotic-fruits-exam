@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class AddFruitComponent {
   fruit = {
-    _id: '',
     name: '',
     origin: '',
     description: '',

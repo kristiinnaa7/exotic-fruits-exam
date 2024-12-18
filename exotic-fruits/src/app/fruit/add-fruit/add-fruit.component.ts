@@ -20,14 +20,13 @@ export class AddFruitComponent {
     imageUrl: ''
   };
 
-  constructor(private apiService: ApiService, private router: Router, private userService: UserService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
   
   addFruit(form: NgForm) {
     if (form.valid) {
       console.log('Submitting fruit:', this.fruit);
       this.apiService.createFruit(this.fruit).subscribe(
         response => {
-          response.owner = this.userService.user?.username || '';
           console.log('Fruit added successfully', response);
           form.reset(); 
           this.router.navigate(['/fruits']);

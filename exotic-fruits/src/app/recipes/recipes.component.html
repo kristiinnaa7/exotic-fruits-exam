@@ -14,6 +14,7 @@
             <div class="image">
               <img src={{recipe.imageUrl}} alt={{recipe.name}} />
             </div>
+            @if(!recipe?.owner) {
             <div class="fruit-actions">
               <button
                 type="button"
@@ -30,7 +31,7 @@
               >
                 Delete
               </button>
-            </div>
+            </div>}
           </div>
         }
       }

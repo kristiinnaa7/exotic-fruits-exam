@@ -13,12 +13,10 @@ fruitController.get('/', async (req, res) => {
 });
 
 fruitController.post('/', async (req, res) => {
-    // const userId = req.user._id;
     const fruitData = req.body;
 
     try {
         const fruits = await fruitService.create(fruitData);
-        // const fruits = await fruitService.create(fruitData, userId);
         res.json(fruits);
     } catch (err) {
         res.status(400).json({ message: getErrorMessage(err) })
@@ -54,8 +52,6 @@ fruitController.put('/:fruitId', async (req, res) => {
         res.status(400).json({ message: getErrorMessage(err) })
     }
 });
-// if (fruits.userId.toString() !== req.userId) {
-//     return res.status(403).json({ message: 'You can only edit your own products' });
-//   }
+
 
 export default fruitController;

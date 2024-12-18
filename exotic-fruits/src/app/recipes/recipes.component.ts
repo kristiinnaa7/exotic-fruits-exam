@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../types/recipes'; 
 import { ApiService } from '../api.service';
 import { Router, RouterLink } from '@angular/router';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-recipes',
@@ -15,7 +16,7 @@ export class RecipesComponent implements OnInit {
   recipes: Recipe[] = []; 
   isLoading = true;
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(private apiService: ApiService, private router: Router, private userService: UserService) {}
 
   ngOnInit() {
     this.apiService.getRecipes().subscribe({
@@ -33,7 +34,9 @@ export class RecipesComponent implements OnInit {
       this.router.navigate(['/edit-recipe', recipe._id]); 
     }
   
-  
+    get firstName(): string {
+      return this.userService.user?.username || '';
+    }
     
     deleteRecipe(recipeId: string | undefined) {
       if (!recipeId) {

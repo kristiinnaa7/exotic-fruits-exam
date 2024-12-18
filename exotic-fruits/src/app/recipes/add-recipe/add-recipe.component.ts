@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ApiService } from '../../api.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-add-recipe',

@@ -24,7 +24,7 @@ export class UserService {
 
   login() {
     this.user = {
-      firstName: 'Jack',
+      username: 'Jack',
       email: 'jacksmith127@gmail.com',
       tel: '885-888-888',
       password: '123123',
@@ -47,7 +47,7 @@ export class UserService {
     rePassword: string
   ): Observable<UserForAuth> {
     const newUser: UserForAuth = {
-      firstName: username,
+      username: username,
       email: email,
       tel: tel,
       password: password,

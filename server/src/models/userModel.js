@@ -2,11 +2,6 @@ import { Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 
 const userSchema = new Schema({
-    _id: {
-        type: String,
-        required: true,
-        auto: true
-    },
     tel: {
         type: String,
         required: true,
@@ -39,24 +34,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    __v: {
-        type: Number,
-        select: false 
-    },
-    created_at: {
-        type: Date,
-        default: Date.now
-    },
-    updatedAt: {
-        type: Date,
-        default: Date.now
-    }
-}, {
-    timestamps: {
-        createdAt: 'created_at',
-        updatedAt: 'updatedAt'
-    }
-});
+}, { timestamps: { createdAt: 'created_at' } });
 
 userSchema.pre('save', async function () {
     const hash = await bcrypt.hash(this.password, 10);

@@ -24,11 +24,11 @@ export class UserService {
 
   login() {
     this.user = {
-      username: 'Jack',
-      email: 'jacksmith127@gmail.com',
-      tel: '885-888-888',
-      password: '123123',
-      id: 'asdasdsadsadsa',
+      username: '',
+      email: '',
+      tel: '',
+      password: '',
+      id: '',
     };
 
     localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));

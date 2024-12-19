@@ -20,9 +20,9 @@ import { UserService } from '../user.service';
 export class ProfileComponent {
   isEditMode: boolean = false;
   profileDetails: ProfileDetails = {
-    username: 'Jack',
-    email: 'jacksmith127@gmail.com',
-    tel: '885-888-888',
+    username: '',
+    email: '',
+    tel: '',
   };
 
   form = new FormGroup({

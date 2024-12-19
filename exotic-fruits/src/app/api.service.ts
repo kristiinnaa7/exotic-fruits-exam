@@ -27,11 +27,11 @@ export class ApiService {
 
   deleteRecipe(recipeId: string) {
     const { apiUrl } = environment;
-    return this.http.delete(`${apiUrl}/fruits/${recipeId}`);
+    return this.http.delete(`${apiUrl}/recipes/${recipeId}`);
   }
   updateRecipe(recipeId: string, updatedRecipe: Recipe) {
     const { apiUrl } = environment;
-    return this.http.put<Fruit>(`${apiUrl}/fruits/${recipeId}`, updatedRecipe);
+    return this.http.put<Recipe>(`${apiUrl}/recipes/${recipeId}`, updatedRecipe);
   }
 
   getFruits() {

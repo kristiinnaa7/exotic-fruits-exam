@@ -13,8 +13,9 @@ import { UserService } from '../../user/user.service';
 })
 export class AddRecipeComponent {
   recipe = {
+    owner: '',
     name: '',
-    ingredients: [],
+    ingredients: [''],
     imageUrl: ''
   };
 

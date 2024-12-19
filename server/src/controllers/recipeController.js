@@ -13,12 +13,10 @@ recipeController.get('/', async (req, res) => {
 });
 
 recipeController.post('/', async (req, res) => {
-    // const userId = req.user._id;
     const recipeData = req.body;
 
     try {
         const recipes = await recipeService.create(recipeData);
-        // const fruits = await fruitService.create(fruitData, userId);
         res.json(recipes);
     } catch (err) {
         res.status(400).json({ message: getErrorMessage(err) })

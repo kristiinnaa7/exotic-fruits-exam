@@ -1,6 +1,4 @@
 
-
-
 export interface Fruit {
     owner?: string,
     _id?: string,

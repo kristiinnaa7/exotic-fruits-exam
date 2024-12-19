@@ -1,4 +1,4 @@
-import { Schema, model, Types } from "mongoose";
+import { Schema, model} from "mongoose";
 const fruitSchema = new Schema({
     name: {
       type: String,

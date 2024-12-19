@@ -20,7 +20,7 @@ const recipeService = {
     create(recipeData) {
         return Recipe.create({ ...recipeData,});
     },
-    delete(fruitId) {
+    delete(recipeId) {
         return Recipe.findByIdAndDelete(recipeId);
     },
     update(recipeId, recipeData) {

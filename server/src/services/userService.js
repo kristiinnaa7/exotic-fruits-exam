@@ -88,6 +88,8 @@ function generateResponse(user) {
         tel: user.tel,
         accessToken: token,
     };
+
+    
 }
 
 export default userService;
